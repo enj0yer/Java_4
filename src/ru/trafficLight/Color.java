@@ -1,20 +1,20 @@
 package ru.trafficLight;
 
 public class Color {
-    private String color;
+    private String currColor;
     private Color nextColor;
 
     public Color(String color, Color nextColor){
-        this.color = color;
+        this.currColor = color;
         this.nextColor = nextColor;
     }
 
     public String getColor(){
-        return color;
+        return currColor;
     }
 
     public void setColor(String color){
-        this.color = color;
+        this.currColor = color;
     }
 
     public Color getNextColor() {

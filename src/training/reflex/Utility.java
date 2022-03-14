@@ -23,7 +23,7 @@ public class Utility {
             opClass = opClass.getSuperclass();
             namesOfFields.addAll(Arrays.stream(opClass.getDeclaredFields())
                                         .map(Field::getName)
-                                        .toList());
+                                        .collect(Collectors.toList()));
             namesOfFields = namesOfFields.stream()
                                            .distinct()
                                            .collect(Collectors.toList());

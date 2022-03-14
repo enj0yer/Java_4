@@ -1,33 +1,36 @@
 package ru.trafficLight;
 
-import org.springframework.beans.factory.annotation.Qualifier;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
+
 
 @Configuration
 public class ColorCfg {
 
+    @Lazy
     @Bean
-    public Color red(Color rYellow){
-        return new Color("red", rYellow);
+    public Color red(Color redYellow){
+        return new Color("red", redYellow);
     }
 
+    @Lazy
     @Bean
-    @Qualifier("startColor")
-    public Color green(Color gYellow){
-        return new Color("green", gYellow);
+    public Color green(Color greenYellow){
+        return new Color("green", greenYellow);
     }
 
+    @Lazy
     @Bean
-    public Color rYellow(Color green){
+    public Color redYellow(Color green){
         return new Color("yellow", green);
     }
 
+    @Lazy
     @Bean
-    public Color gYellow(Color red){
+    public Color greenYellow(Color red){
         return new Color("yellow", red);
     }
-
-
 
 }
