@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class TrafficLight {
     @Autowired
-    @Qualifier("red")
+    @Qualifier("startColor")
     private Color currColor;
 
     public void next(){
