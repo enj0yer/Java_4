@@ -8,10 +8,15 @@ import org.springframework.stereotype.Component;
 public class TrafficLight {
     @Autowired
     @Qualifier("red")
+
     private Color currColor;
 
     public void next(){
         System.out.println(currColor.getColor());
         currColor = currColor.getNextColor();
+    }
+
+    private void changeState(){
+
     }
 }

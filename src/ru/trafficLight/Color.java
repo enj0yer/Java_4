@@ -1,5 +1,8 @@
 package ru.trafficLight;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.lang.NonNull;
+
 public class Color {
     private String currColor;
     private Color nextColor;
