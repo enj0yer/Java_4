@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Field;
 
-@Component
+//@Component
 public class FieldPostProcessor implements BeanPostProcessor {
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {

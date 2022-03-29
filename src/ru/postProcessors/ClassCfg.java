@@ -8,20 +8,41 @@ import org.springframework.stereotype.Component;
 public class ClassCfg {
 
     @Bean
-    public A a(NullStringGen obj){
-        return new A(obj.toString());
+    public Cat cat(){
+        return new Cat();
     }
 
     @Bean
-    public B b(C c){
-        return new B(c);
+    public Dog dog(){
+        return new Dog();
     }
 
     @Bean
-    public C c(A a){
-        return new C(a);
+    public Bird bird(){
+        return new Bird();
     }
+
+    @Bean
+    public String string(){
+        return "qwerty";
+    }
+
+    @Bean
+    public int min(){
+        return 0;
+    }
+
+    @Bean
+    public int max(){
+        return 100;
+    }
+
+//    @Bean
+//    public Object object(){
+//        return new Object();
+//    }
 }
+
 
 @Component
 class NullStringGen{
