@@ -8,5 +8,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="spring-5.3" level="project" />
+    <orderEntry type="library" name="mssql-jdbc-10.2.0.jre11" level="project" />
+    <orderEntry type="library" name="mssql-jdbc-10.2.0.jre11 (2)" level="project" />
+    <orderEntry type="library" name="h2-2.1.210" level="project" />
   </component>
 </module>

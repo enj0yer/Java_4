@@ -5,8 +5,6 @@ import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.GenericBeanDefinition;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -14,28 +12,30 @@ public class RandomizeFactory implements BeanFactoryPostProcessor {
 
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory configurableListableBeanFactory) throws BeansException {
-        String[] beanNames = configurableListableBeanFactory.getBeanDefinitionNames();
 
-        for (var beanName : beanNames){
-            if (beanName.equals("random")){
-                GenericBeanDefinition bd = new GenericBeanDefinition();
-                bd.setBeanClass(Random.class);
-                bd.setScope("prototype");
-                bd.setAutowireCandidate(true);
-                bd.setAutowireMode(1);
+        BeanDefinitionRegistry bdr = (BeanDefinitionRegistry) configurableListableBeanFactory;
 
-                BeanDefinitionRegistry registry = (BeanDefinitionRegistry) configurableListableBeanFactory;
+        GenericBeanDefinition randomConfigDefinition = new GenericBeanDefinition();
 
-                registry.registerBeanDefinition("random", bd);
+        randomConfigDefinition.setBeanClass(Random.class);
 
-            }
-        }
+        bdr.registerBeanDefinition("Random", randomConfigDefinition);
+
+        GenericBeanDefinition gbd = new GenericBeanDefinition(); //???????
+
+        randomConfigDefinition.setFactoryBeanName("Random");
+        randomConfigDefinition.setFactoryMethodName("random");
+        randomConfigDefinition.setScope("prototype");
+        randomConfigDefinition.setBeanClass(int.class);
+
+        bdr.registerBeanDefinition("random", randomConfigDefinition);
+
+
     }
 }
 
-@Component
 class Random{
-    public int random(int min, int max){
-        return (int)(Math.random() * (max - min) - min);
+    public int random(){
+        return (int)(Math.random() * 100);
     }
 }
