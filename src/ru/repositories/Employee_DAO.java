@@ -1,4 +1,4 @@
-package ru.db;
+package ru.repositories;
 
 import java.nio.file.Paths;
 import java.sql.*;

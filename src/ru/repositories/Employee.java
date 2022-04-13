@@ -1,6 +1,11 @@
-package ru.db;
+package ru.repositories;
+
+
+import org.springframework.data.annotation.Id;
 
 public class Employee {
+
+    @Id
     private int id_employee = 0;
     private String name;
     private int id_department;
