@@ -9,6 +9,7 @@ public class Employee {
     private int id_employee = 0;
     private String name;
     private int id_department;
+    private String department_name;
 
     public Employee(int id_employee, String name, int id_department){
         this.id_employee = id_employee;
@@ -21,9 +22,20 @@ public class Employee {
         this.id_department = id_department;
     }
 
-    public Employee(){
-
+    public Employee(int id_employee, String name, String department_name){
+        this.id_employee = id_employee;
+        this.name = name;
+        this.department_name = department_name;
     }
+
+    public Employee (int id_employee, String name, int id_department, String department_name){
+        this.id_employee = id_employee;
+        this.name = name;
+        this.id_department = id_department;
+        this.department_name = department_name;
+    }
+
+    public Employee(){}
 
     public String getName() {
         return name;
@@ -39,10 +51,10 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "id_employee=" + id_employee +
-                ", name='" + name + '\'' +
-                ", id_department=" + id_department +
-                '}';
+            return "Employee{" + ((id_employee == 0) ? "" : "id_employee=" + id_employee) +
+                    ", name='" + name + '\'' +
+                    ((id_department == 0) ? "" : ", id_department=" + id_department) +
+                    ((department_name == null) ? "" :  ", department_name=" + department_name) +
+                    '}';
     }
 }
